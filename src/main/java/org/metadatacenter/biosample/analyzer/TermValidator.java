@@ -253,6 +253,7 @@ public final class TermValidator {
             fw.close();
             return;
           }
+          System.out.println(e);
           System.out.println("Caught system error trying to validate term, retrying in 30 seconds with new agent...");
           num_retries++;
           Thread.sleep(30000);
