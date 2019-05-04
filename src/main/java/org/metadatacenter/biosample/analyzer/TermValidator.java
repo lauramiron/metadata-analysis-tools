@@ -278,7 +278,7 @@ public final class TermValidator {
       lastLine = currLine;
     }
     br.close();
-    int startIdx = Integer.parseInt(lastLine.split(",")[0])+1;
+    int startIdx = Integer.parseInt(lastLine.split("\t")[0])+1;
     System.out.println("Resuming "+ofname+" from index "+startIdx);
     return startIdx;
   }
@@ -295,7 +295,7 @@ public final class TermValidator {
     String lauraApiKey = "473c78b3-0265-4bdd-afa0-f83e3ca0dcf7";
     String lmironApiKey = "5369dc48-a112-458e-aa01-5acb0dd9d3e0";
 
-    String bioPortalApiKey = (lauraKey) ? lmironApiKey : rafaelApiKey;
+    String bioPortalApiKey = (lauraKey) ? lauraApiKey : rafaelApiKey;
 
     ArrayList<String> index_list = new ArrayList<String>();
     ArrayList<String> files_list = new ArrayList<String>();
