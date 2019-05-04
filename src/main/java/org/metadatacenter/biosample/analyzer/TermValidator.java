@@ -293,8 +293,9 @@ public final class TermValidator {
     boolean exactMatch = true;
     String rafaelApiKey = "b0363744-e6d9-4cd5-a7a8-f3a118ee3049";
     String lauraApiKey = "473c78b3-0265-4bdd-afa0-f83e3ca0dcf7";
+    String lmironApiKey = "5369dc48-a112-458e-aa01-5acb0dd9d3e0";
 
-    String bioPortalApiKey = (lauraKey) ? lauraApiKey : rafaelApiKey;
+    String bioPortalApiKey = (lauraKey) ? lmironApiKey : rafaelApiKey;
 
     ArrayList<String> index_list = new ArrayList<String>();
     ArrayList<String> files_list = new ArrayList<String>();
