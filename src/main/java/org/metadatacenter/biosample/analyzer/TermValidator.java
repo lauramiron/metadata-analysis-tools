@@ -253,8 +253,7 @@ public final class TermValidator {
             fw.close();
             return;
           }
-          System.out.println(e.getMessage());
-          System.out.println("Caught system error trying to validate term, retrying in 30 seconds with new agent...");
+          System.out.println("Caught system error trying to validate "+term+" retrying in 30 seconds with new agent...");
           num_retries++;
           Thread.sleep(30000);
           validator = new TermValidator(new BioPortalAgent(bioPortalApiKey));
