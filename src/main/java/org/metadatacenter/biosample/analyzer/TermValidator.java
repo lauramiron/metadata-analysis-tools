@@ -343,8 +343,7 @@ public final class TermValidator {
           if (num_retries >= 5) {
             System.out.println("Too many retries, skipping "+term);
             fw.flush();
-            fw.close();
-            return;
+            continue;
           }
           System.out.println(e);
           System.out.println("Caught system error trying to validate "+term+", retrying in 30 seconds with new agent...");
