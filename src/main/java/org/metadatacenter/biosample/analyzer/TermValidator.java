@@ -338,6 +338,7 @@ public final class TermValidator {
       while (true) {
         try {
           report = validator.validateTerm(term, exactMatch);
+          fw.write(idx+"\t"+fname+"\t"+term+"\t"+report.getMatchValue()+"\t"+report.getMatchLabel()+"\n");
           break;
         } catch (Exception e) {
           if (num_retries >= 5) {
@@ -353,7 +354,6 @@ public final class TermValidator {
           continue;
         }
       }
-      fw.write(idx+"\t"+fname+"\t"+term+"\t"+report.getMatchValue()+"\t"+report.getMatchLabel()+"\n");
     }
     fw.close();
   }
