@@ -200,8 +200,7 @@ public final class TermValidator {
       while (true) {
         try {
           report = validator.validateTerm(term, exactMatch);
-          System.out.println(report.toString());
-          // fw.write(idx+"\t"+term+"\t"+report.getMatchValue()+"\t"+report.getMatchLabel()+"\n");
+          fw.write(idx+"\t"+term+"\t"+report.getMatchValue()+"\t"+report.getMatchLabel()+"\n");
           break;
         } catch (Exception e) {
           if (num_retries >= 5) {
