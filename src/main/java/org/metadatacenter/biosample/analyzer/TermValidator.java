@@ -61,6 +61,7 @@ public final class TermValidator {
         }
         searchResult = bioPortalAgent.getResult(searchString, exactMatch, onts);
       } else {
+        System.out.println("searchString: "+searchString);
         searchResult = bioPortalAgent.getResult(searchString, exactMatch);
       }
     }
@@ -145,6 +146,16 @@ public final class TermValidator {
   }
 
   /* Main */
+  // public static void main(String[] args) {
+  //   String term = args[0];
+  //   boolean exactMatch = Boolean.parseBoolean(args[1]);
+  //   String bioPortalApiKey = args[2];
+
+  //   TermValidator validator = new TermValidator(new BioPortalAgent(bioPortalApiKey));
+  //   TermValidationReport report = validator.validateTerm(term, exactMatch);
+  //   System.out.println(report.toString());
+  // }
+
   public static void main(String[] args) throws IOException, InterruptedException {
     Path dirname = Paths.get(args[0]);
     Path ifname = dirname.resolve(args[1]);
@@ -176,7 +187,7 @@ public final class TermValidator {
     FileWriter fw = new FileWriter(ofname.toFile(),true);
     for (int i=0; i<keywords_list.size(); i++){
       String idx = index_list.get(i);      
-      String term = keywords_list.get(i);
+      String term = keywords_list.get(i).strip();
       if (Integer.parseInt(idx)<startIdx) continue;
 
       if (i%1000 == 0) {
@@ -189,7 +200,8 @@ public final class TermValidator {
       while (true) {
         try {
           report = validator.validateTerm(term, exactMatch);
-          fw.write(idx+"\t"+term+"\t"+report.getMatchValue()+"\t"+report.getMatchLabel()+"\n");
+          System.out.println(report.toString());
+          // fw.write(idx+"\t"+term+"\t"+report.getMatchValue()+"\t"+report.getMatchLabel()+"\n");
           break;
         } catch (Exception e) {
           if (num_retries >= 5) {
