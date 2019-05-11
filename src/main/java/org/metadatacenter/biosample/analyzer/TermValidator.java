@@ -61,7 +61,6 @@ public final class TermValidator {
         }
         searchResult = bioPortalAgent.getResult(searchString, exactMatch, onts);
       } else {
-        System.out.println("searchString: "+searchString);
         searchResult = bioPortalAgent.getResult(searchString, exactMatch);
       }
     }
