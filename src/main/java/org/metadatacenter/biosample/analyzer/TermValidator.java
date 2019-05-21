@@ -172,8 +172,7 @@ public final class TermValidator {
     CommandLineParser parser = new DefaultParser();
     CommandLine cmd = parser.parse(options,args);
 
-    // boolean exactMatch = (cmd.hasOption("em")) ? Boolean.parseBoolean(cmd.getOptionValue("em")) : true;
-    boolean exactMatch = true;
+    boolean exactMatch = (cmd.hasOption("em")) ? Boolean.parseBoolean(cmd.getOptionValue("em")) : true;
     String bioPortalApiKey = cmd.getOptionValue("k");
     String [] ontology = (cmd.hasOption("o")) ? cmd.getOptionValue("o").split(",") : null;
 
