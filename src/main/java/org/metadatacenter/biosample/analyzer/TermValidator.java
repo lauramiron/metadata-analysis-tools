@@ -56,6 +56,7 @@ public final class TermValidator {
     searchString = p2.matcher(searchString).replaceAll("");
     searchString = p3.matcher(searchString).replaceAll("");
 
+    System.out.println(searchString);
     Optional<JsonNode> searchResult = Optional.empty();
     if (!searchString.trim().isEmpty()) {
       if (ontologies.length > 0) {
@@ -72,6 +73,7 @@ public final class TermValidator {
     if (searchResult.isPresent() && searchResult.get().elements().hasNext()) {
       // look at the first result from BioPortal
       JsonNode node = searchResult.get().elements().next();
+      // System.out.println(node.toString()+"\n\n");
 
       String type = node.get("@type").textValue();
       boolean isOWLClass = isOwlClass(type);
@@ -148,9 +150,8 @@ public final class TermValidator {
   }
 
   /* Main */
-  public static void SearchTerm(String term, boolean exactMatch, String bioPortalApiKey, String ontology) {
+  public static void SearchTerm(String term, boolean exactMatch, String bioPortalApiKey, String... ontology) {
     TermValidator validator = new TermValidator(new BioPortalAgent(bioPortalApiKey));
-    System.out.println(term);
     TermValidationReport report;
     if (ontology == null) {
       report = validator.validateTerm(term, exactMatch);
@@ -172,9 +173,10 @@ public final class TermValidator {
     CommandLineParser parser = new DefaultParser();
     CommandLine cmd = parser.parse(options,args);
 
-    boolean exactMatch = (cmd.hasOption("em")) ? Boolean.parseBoolean(cmd.getOptionValue("em")) : true;
+    // boolean exactMatch = (cmd.hasOption("em")) ? Boolean.parseBoolean(cmd.getOptionValue("em")) : true;
+    boolean exactMatch = true;
     String bioPortalApiKey = cmd.getOptionValue("k");
-    String ontology = (cmd.hasOption("o")) ? cmd.getOptionValue("o") : null;
+    String [] ontology = (cmd.hasOption("o")) ? cmd.getOptionValue("o").split(",") : null;
 
     if (cmd.hasOption("t")) {
       SearchTerm(cmd.getOptionValue("t"),exactMatch,bioPortalApiKey,ontology);

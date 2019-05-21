@@ -37,6 +37,7 @@ public final class BioPortalAgent {
   @Nonnull
   public Optional<JsonNode> getResult(@Nonnull String searchString, boolean exactSearch) {
     String query = REST_URL + "/search?q=" + searchString + (exactSearch ? "&require_exact_match=true" : "") + "&page=1&pagesize=1";
+    // System.out.println(query);
     return runQuery(query);
   }
 
@@ -44,6 +45,7 @@ public final class BioPortalAgent {
   public Optional<JsonNode> getResult(@Nonnull String searchString, boolean exactSearch, @Nonnull String ontologies) {
     String query = REST_URL + "/search?q=" + searchString + (exactSearch ? "&require_exact_match=true" : "") + "&ontologies="
         + ontologies + "&page=1&pagesize=1";
+    // System.out.println(query);
     return runQuery(query);
   }
 
