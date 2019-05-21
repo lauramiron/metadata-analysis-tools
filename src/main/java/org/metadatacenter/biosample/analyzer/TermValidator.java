@@ -56,7 +56,6 @@ public final class TermValidator {
     searchString = p2.matcher(searchString).replaceAll("");
     searchString = p3.matcher(searchString).replaceAll("");
 
-    System.out.println(searchString);
     Optional<JsonNode> searchResult = Optional.empty();
     if (!searchString.trim().isEmpty()) {
       if (ontologies.length > 0) {
