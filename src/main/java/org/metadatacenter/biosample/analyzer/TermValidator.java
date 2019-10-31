@@ -302,8 +302,9 @@ public final class TermValidator {
       }
     }
     int startIdx = 0;
-    if (cmd.hasOption("i")) {
+    if (cmd.hasOption("index")) {
       startIdx = Integer.parseInt(cmd.getOptionValue("i"));
+      System.out.println("Starting from index "+startIdx);
     } else if (ofname != null) {
       startIdx = getStartIndex(ofname.toFile());
     }
