@@ -276,7 +276,7 @@ public final class TermValidator {
     options.addOption("em", true, "[true|false] Whether to search using bioportal's 'exact match'. Default true'");
     options.addOption("k",true, "Bioportal api key");
     options.addOption("restart","r",false, "Remove old outfile and start from index 0");
-    options.addOption("index", "i");
+    options.addOption("index",true,"start from index");
     // options.addOption("allresults","ar",false, "Return results in all ontologies, default first result only");
     CommandLineParser parser = new DefaultParser();
     CommandLine cmd = parser.parse(options,args);
@@ -303,7 +303,7 @@ public final class TermValidator {
     }
     int startIdx = 0;
     if (cmd.hasOption("index")) {
-      startIdx = Integer.parseInt(cmd.getOptionValue("i"));
+      startIdx = Integer.parseInt(cmd.getOptionValue("index"));
       System.out.println("Starting from index "+startIdx);
     } else if (ofname != null) {
       startIdx = getStartIndex(ofname.toFile());
