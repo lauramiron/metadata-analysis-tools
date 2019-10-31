@@ -250,7 +250,7 @@ public final class TermValidator {
   /* Main */
   public static void OutputResult(TermValidationReport report, FileWriter fw, String idx, String term) throws IOException {
     if (fw != null) {
-      fw.write(idx+"\t"+term+"\t"+report.getMatchValue()+"\t"+report.getMatchLabel()+"\t"+report.getCuis()+"\t"+report.getSemanticTypes()+"\t"+report.getOntology()+"\n");
+      fw.write(idx+"\t"+term+"\t"+report.getMatchValue()+"\t"+report.getMatchLabel()+"\t"+report.getCuis()+"\t"+report.getSemanticTypes()+"\n");
     } else {
       System.out.println(term + " " + report.toString());
     }
