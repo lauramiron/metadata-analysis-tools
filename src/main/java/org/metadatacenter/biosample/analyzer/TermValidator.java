@@ -352,7 +352,6 @@ public final class TermValidator {
           } else {
             report = validator.validateTerm(term,exactMatch);
           }
-          System.out.println("shouldn't be here");
           OutputResult(report, fw, idx, term);
           break;
 
