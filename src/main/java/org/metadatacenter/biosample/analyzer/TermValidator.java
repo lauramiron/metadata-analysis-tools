@@ -250,6 +250,7 @@ public final class TermValidator {
   /* Main */
   public static void OutputResult(TermValidationReport report, FileWriter fw, String idx, String term) throws IOException {
     if (fw != null) {
+      // return;
       fw.write(idx+"\t"+term+"\t"+report.getMatchValue()+"\t"+report.getMatchLabel()+"\t"+report.getCuis()+"\t"+report.getSemanticTypes()+"\n");
     } else {
       System.out.println(term + " " + report.toString());
@@ -283,7 +284,7 @@ public final class TermValidator {
 
     boolean exactMatch = (cmd.hasOption("em")) ? Boolean.parseBoolean(cmd.getOptionValue("em")) : true;
     // boolean allResults = (cmd.hasOption("ar")) ? Boolean.parseBoolean(cmd.getOptionValue("ar")) : false;
-    boolean allResults = true;
+    boolean allResults = false;
     String bioPortalApiKey = cmd.getOptionValue("k");
     String [] ontology = (cmd.hasOption("o")) ? cmd.getOptionValue("o").split(",") : null;
     // boolean allReults = (cmd.hasOption("ar")) ? true : false;
