@@ -284,7 +284,7 @@ public final class TermValidator {
 
     boolean exactMatch = (cmd.hasOption("em")) ? Boolean.parseBoolean(cmd.getOptionValue("em")) : true;
     // boolean allResults = (cmd.hasOption("ar")) ? Boolean.parseBoolean(cmd.getOptionValue("ar")) : false;
-    boolean allResults = false;
+    boolean allResults = true;
     String bioPortalApiKey = cmd.getOptionValue("k");
     String [] ontology = (cmd.hasOption("o")) ? cmd.getOptionValue("o").split(",") : null;
     // boolean allReults = (cmd.hasOption("ar")) ? true : false;
